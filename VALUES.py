@@ -2,18 +2,21 @@
 import requests
 import pandas as pd
 import yfinance as yf
+import streamlit as st 
+
+@st.cache_data(ttl=3600)
+def fetch_info(ticker):
+    return yf.Ticker(ticker).info
 
 
 def get_data(company1,company2):
-
-  TICKER_1 = f"{company1}.NS"
-  TICKER_2 = f"{company2}.NS"
-
-  data_1 =yf.Ticker(TICKER_1)
-  data_2 =yf.Ticker(TICKER_2)
-
-  info= data_1.info
-  info1= data_2.info
+  
+ 
+ try:
+        info = fetch_info(f"{company1}.NS")
+        info1 = fetch_info(f"{company2}.NS")
+    except Exception:
+        return "Yahoo Finance rate limit exceeded. Try again later."
 
   metrics= [
             "company",
