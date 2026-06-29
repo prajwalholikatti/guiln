@@ -42,7 +42,7 @@ def get_data(company1,company2):
             "earnings_growth"
    ]
 
-  df1_values=[ info.get("longName"),
+   df1_values=[ info.get("longName"),
              info.get("sector"),
              info.get("currentPrice"),
              info.get("marketCap"),
@@ -65,7 +65,7 @@ def get_data(company1,company2):
              info.get("earningsGrowth")
 
     ]
-  df2_values= [
+   df2_values= [
     info1.get("longName"),
     info1.get("sector"),
     info1.get("currentPrice"),
@@ -89,7 +89,7 @@ def get_data(company1,company2):
     info1.get("earningsGrowth")
     ]
 
-  df= pd.DataFrame(
+   df= pd.DataFrame(
     {
         "METRICS" : metrics,
         "VALUES_COMPANY_1" : df1_values,
@@ -97,6 +97,6 @@ def get_data(company1,company2):
      )
 
 
-  return  df
+   return  df
 
 
