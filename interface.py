@@ -15,12 +15,9 @@ company2 = st.text_input("Company 2")
 
 if st.button("Compare"):
 
-    df = VALUES.get_data(company1, company2)
+   df = VALUES.get_data(company1, company2)
 
-
-
-    try:
-        st.dataframe(df)
-        st.success("Dataframe rendered successfully")
-    except Exception as e:
-        st.error(str(e))
+   if isinstance(df, str):
+     st.error(df)
+   else:
+     st.dataframe(df, use_container_width=True)
