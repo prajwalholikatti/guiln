@@ -12,10 +12,10 @@ def fetch_info(ticker):
 def get_data(company1,company2):
   
  
-    try:
+   try:
         info = fetch_info(f"{company1}.NS")
         info1 = fetch_info(f"{company2}.NS")
-    except Exception:
+   except Exception:
         return "Yahoo Finance rate limit exceeded. Try again later."
 
    metrics= [
